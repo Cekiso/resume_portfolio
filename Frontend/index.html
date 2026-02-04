@@ -9,6 +9,7 @@
   <meta name="description" content="NonkululekoCikisoCV - Resume / CV / vCard Template" />
   <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Material CV, portfolio" />
   <meta name="author" content="lmpixels" />
+  
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet" href="css/reset.css" type="text/css">
   <link rel="stylesheet" href="css/bootstrap-grid.min.css" type="text/css">
@@ -39,7 +40,7 @@
       <header id="site_header" class="header mobile-menu-hide">
         <div class="header-content">
           <div class="header-photo">
-            <img src="./img/me.jpg" alt="NonkululekoCikiso">
+            <img src="./img/me.jpg" alt="NonkululekoCikiso" style="width: 60%;border-radius:100%">
           </div>
           <div class="header-titles">
             <h2>Nonkululeko Cikiso</h2>
@@ -89,7 +90,7 @@
         </div>
 
         <div class="header-buttons">
-          <a href="https://docs.google.com/document/d/1YdIxZNnITLhBsngdZhF8KyiqH7OQNZZaCGPuhRM12Pc/edit?usp=sharing" target="_blank" class="btn btn-primary" download>Download CV</a>
+          <a href="/Frontend/img/portfolio/NCikiso_resume (1).pdf" target="_blank" class="btn btn-primary" download>Download CV</a>
         </div>
 
         <div class="copyrights">© 2021 All rights reserved.</div>
@@ -178,6 +179,7 @@
                       </li> -->
                         <span class="title">e-mail</span>
                         <span class="value">nonkululekocekiso1@gmail.com</span>
+                        <span class="value">ncikiso023@student.wethinkcode.co.za</span>
                       </li>
 
                       <!-- <li>
@@ -326,7 +328,7 @@
 
                     <div class="timeline-item clearfix">
                       <div class="left-part">
-                        <h5 class="item-period">2024</h5>
+                        <h5 class="item-period">2023</h5>
                         <span class="item-company">WeThinkCode</span>
                       </div>
                       <div class="divider"></div>
@@ -704,146 +706,118 @@
           <!-- End of Resume Subpage -->
 
           <!-- Portfolio Subpage -->
-          <section data-id="portfolio" class="animated-section">
-            <div class="section-content">
-              <div class="page-title">
-                <h2>Portfolio</h2>
+      <section data-id="portfolio" class="animated-section">
+    <div class="section-content">
+      <div class="page-title">
+        <h2>Portfolio</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <div class="portfolio-content">
+            <ul class="portfolio-filters">
+              <li class="active">
+                <a class="filter btn btn-sm btn-link" data-group="all">All</a>
+              </li>
+              <li>
+                <a class="filter btn btn-sm btn-link" data-group="frontend">Front-End</a>
+              </li>
+              <li>
+                <a class="filter btn btn-sm btn-link" data-group="backend">Back-End</a>
+              </li>
+            </ul>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+              <!-- Projects will be rendered here by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Template -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="ajax-page-wrapper">
+          <div class="ajax-page-nav">
+            <div class="nav-item ajax-page-close">
+              <a href="#" class="close-btn" onclick="closeModal(); return false;">×</a>
+            </div>
+          </div>
+          <div class="ajax-page-title">
+            <h1 id="modalTitle"></h1>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="portfolio-page-image">
+          <img id="modalImage" class="project-image" src="" alt="" style="width: 50%">
+        </div>
+        
+        <div class="ajax-page-wrapper">
+          <div class="portfolio-block">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8">
+                <div class="project-description">
+                  <div class="block-title">
+                    <h3>Overview</h3>
+                  </div>
+                  <p id="modalOverview"></p>
+                </div>
+
+                <div class="project-description">
+                  <div class="block-title">
+                    <h3>The Idea</h3>
+                  </div>
+                  <p id="modalIdea"></p>
+                </div>
+
+                <div class="project-description">
+                  <div class="block-title">
+                    <h3>Challenges Faced</h3>
+                  </div>
+                  <ul id="modalChallenges"></ul>
+                </div>
+
+                <div class="project-description">
+                  <div class="block-title">
+                    <h3>Solutions & Learnings</h3>
+                  </div>
+                  <p id="modalSolutions"></p>
+                </div>
               </div>
 
-              <div class="row">
-                <div class="col-xs-12 col-sm-12">
-                  <!-- Portfolio Content -->
-                  <div class="portfolio-content">
-
-                    <ul class="portfolio-filters">
-                      <li class="active">
-                        <a class="filter btn btn-sm btn-link" data-group="all">All</a>
-                      </li>
-                      <li>
-                        <a class="filter btn btn-sm btn-link" data-group="frontend">Front-End</a>
-                      </li>
-                      <li>
-                        <a class="filter btn btn-sm btn-link" data-group="backend">Back-End</a>
-                      </li>
-                    </ul>
-
-                    <!-- Portfolio Grid -->
-                    <div class="portfolio-grid two-columns">
-
-                      <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/Basic.png" alt="Basic webpage" title="" />
-                          <a href="https://cekiso.github.io/basic-webpage/"></a>
-                        </div>
-                        <span class="category">Basic webpage</span>
-                      </figure>
-
-                      
-                      <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/myweb.png" alt="first Portfolio" title="" />
-                          <a href="https://cekiso.github.io/new-portfolio/#Portfolio/"></a>
-                        </div>
-                        <span class="category">Basic webpage</span>
-                      </figure>
-
-                      <!-- <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/SettingsBill.png" alt="Settings Bill" title="" />
-                          <a href="https://cekiso.github.io/basic-webpage/"></a>
-                          <span class="category">Settings Bill</span>
-                        </div>
-                      </figure> -->
-
-                      <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/Dom.png" alt="Dom widgets" title="" />
-                          <a href="https://github.com/Cekiso/dom-intro1"></a>
-                          <span class="category">Dom widgets</span>
-                        </div>
-                      </figure>
-
-                      <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/DomTests.png" alt="Dom widgets tests" title="" />
-                          <a href="https://github.com/Cekiso/Dom-factory-functions"></a>
-                          <span class="category">Dom widgets tests</span>
-                        </div>
-                      </figure>
-
-                      <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/Greeting.png" alt="Greetings App" title="" />
-                          <a href="https://github.com/Cekiso/greetingwebapp"></a>
-                          <span class="category">Greetings App</span>
-                        </div>
-                      </figure>
-
-                      <!-- <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/Registration.png" alt="Registration Numbers App" title="" />
-                          <a href="https://github.com/Cekiso/registration-number-web-app"></a>
-                          <span class="category">Registration Numbers App</span>
-                        </div>
-                      </figure> -->
-
-                      <!-- <figure class="item lbaudio" data-groups='["all", "frontend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/Days.png" alt="Matching Day" title="" />
-                          <a href="https://owethusotomela.github.io/matching_days"></a>
-                          <span class="category">Matching Days</span>
-                        </div>
-                      </figure> -->
-
-                      <figure class="item lbaudio" data-groups='["all", "backend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/settingsbill.png" alt="Settings-Bill-ExpressJs" title="" />
-                          <a href="https://github.com/Cekiso/settings-with-bill-expressjs"></a>
-                          <span class="category">Settings-Bill-ExpressJs</span>
-                        </div>
-                      </figure>
-
-                      <!-- <figure class="item lbaudio" data-groups='["all", "backend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/greeting.png" alt="Greeting Webapp" title="" />
-                          <a href="https://github.com/OwethuSotomela/greetings-webapp.git"></a> 
-                          <span class="category">Greeting Webapp</span>
-                        </div>
-                      </figure> -->
-
-                      <figure class="item lbaudio" data-groups='["all", "backend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/reg.png" alt="Registration Numbers Webapp" title="" />
-                          <a href="https://github.com/Cekiso/registration-number-web-app"></a>
-                          <span class="category">Registration Numbers Webapp</span>
-                        </div>
-                      </figure>
-
-                      <figure class="item lbaudio" data-groups='["all", "backend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/express.png" alt="Express-Starter-App" title="" />
-                          <a href="https://github.com/Cekiso/express-starter"></a>
-                          <span class="category">Express-Starter-App</span>
-                        </div>
-                      </figure>
-
-                      <!-- <figure class="item lbaudio" data-groups='["all", "backend"]'>
-                        <div class="portfolio-item-img">
-                          <img src="img/portfolio/waiter.png" alt="Waiter-Availability-Webapp" title="" />
-                          <a href="https://github.com/OwethuSotomela/waiter_webapp.git"></a>
-                          <span class="category">Waiter-Availability-Webapp</span>
-                        </div>
-                      </figure> -->
-
-                      </figure>
-
-                    </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="project-description">
+                  <div class="block-title">
+                    <h3>Project Info</h3>
                   </div>
-                  <!-- End of Portfolio Content -->
+                  <ul class="project-general-info" id="modalInfo">
+                    <!-- Will be populated by JavaScript -->
+                  </ul>
+                </div>
+
+                <div class="project-description">
+                  <div class="block-title">
+                    <h3>Technologies</h3>
+                  </div>
+                  <ul id="modalTech"></ul>
+                </div>
+
+                <div class="project-links">
+                  <bold><h3>Project Links</h3></bold>
+                  <a id="modalLiveLink" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square">View Live Demo</i></a>
+                  <a id="modalGithubLink" href="#" target="_blank"> <> GitHub</a>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
           <!-- End of Portfolio Subpage -->
 
           <!-- Contact Subpage -->
@@ -967,9 +941,10 @@
   <script src="js/jquery.magnific-popup.min.js"></script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
-  <script src="js/jquery.googlemap.js"></script>
-  <script src="js/validator.js"></script>
-  <script src="js/main.js"></script>
+ <script src="js/jquery.min.js"></script>
+<script src="js/jquery.shuffle.min.js"></script>
+<script src="js/projectview.js"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>
