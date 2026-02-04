@@ -110,7 +110,7 @@ const projects = [
     title: "Movie App",
     category: "backend",
     image: "img/portfolio/movie.png",
-    liveLink: "https://weather-app-nzj7.onrender.com/",
+    liveLink: "movies-app-5v22.onrender.com",
     githubLink: "https://github.com/Cekiso/movie-with-alphine",
     overview: "A boilerplate Express.js application with common configurations and middleware.",
     idea: "Create a reusable starter template for Express.js projects with best practices already configured.",
