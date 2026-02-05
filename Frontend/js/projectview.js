@@ -110,7 +110,7 @@ const projects = [
     title: "Movie App",
     category: "backend",
     image: "img/portfolio/movie.png",
-    liveLink: "movies-app-5v22.onrender.com",
+    liveLink: "https://weather-app-nzj7.onrender.com/",
     githubLink: "https://github.com/Cekiso/movie-with-alphine",
     overview: "A boilerplate Express.js application with common configurations and middleware.",
     idea: "Create a reusable starter template for Express.js projects with best practices already configured.",
@@ -144,7 +144,6 @@ function renderProjects() {
     figure.className = 'item';
     
     // IMPORTANT: Add data-groups attribute for Shuffle.js filtering
-    // Format: "all" and the category
     figure.setAttribute('data-groups', '["all","' + project.category + '"]');
     
     figure.style.cursor = 'pointer';
@@ -164,17 +163,14 @@ function renderProjects() {
     grid.appendChild(figure);
   });
   
-  console.log('Projects rendered:', projects.length);
-  
   // Trigger Shuffle.js update if it's initialized
   if (typeof $ !== 'undefined' && $('.portfolio-grid').data('shuffle')) {
     $('.portfolio-grid').shuffle('update');
-    console.log('Shuffle.js updated');
   }
 }
 
 // ============================================
-// MODAL FUNCTIONS
+// MODAL FUNCTIONS - IMPROVED MOBILE SUPPORT
 // ============================================
 function openModal(projectId) {
   const project = projects.find(function(p) {
@@ -186,42 +182,85 @@ function openModal(projectId) {
     return;
   }
 
-  document.getElementById('modalTitle').textContent = project.title;
-  document.getElementById('modalImage').src = project.image;
-  document.getElementById('modalImage').alt = project.title;
-  document.getElementById('modalOverview').textContent = project.overview;
-  document.getElementById('modalIdea').textContent = project.idea;
-  document.getElementById('modalSolutions').textContent = project.solutions;
-  document.getElementById('modalLiveLink').href = project.liveLink;
-  document.getElementById('modalGithubLink').href = project.githubLink;
+  // Populate modal content
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage');
+  const modalOverview = document.getElementById('modalOverview');
+  const modalIdea = document.getElementById('modalIdea');
+  const modalSolutions = document.getElementById('modalSolutions');
+  const modalLiveLink = document.getElementById('modalLiveLink');
+  const modalGithubLink = document.getElementById('modalGithubLink');
+  const modalTech = document.getElementById('modalTech');
+  const modalChallenges = document.getElementById('modalChallenges');
+  
+  if (modalTitle) modalTitle.textContent = project.title;
+  if (modalImage) {
+    modalImage.src = project.image;
+    modalImage.alt = project.title;
+  }
+  if (modalOverview) modalOverview.textContent = project.overview;
+  if (modalIdea) modalIdea.textContent = project.idea;
+  if (modalSolutions) modalSolutions.textContent = project.solutions;
+  if (modalLiveLink) modalLiveLink.href = project.liveLink;
+  if (modalGithubLink) modalGithubLink.href = project.githubLink;
 
   // Populate tech list
-  const techList = document.getElementById('modalTech');
-  techList.innerHTML = project.tech.map(function(tech) {
-    return '<li>' + tech + '</li>';
-  }).join('');
+  if (modalTech) {
+    modalTech.innerHTML = project.tech.map(function(tech) {
+      return '<li>' + tech + '</li>';
+    }).join('');
+  }
 
   // Populate challenges list
-  const challengesList = document.getElementById('modalChallenges');
-  challengesList.innerHTML = project.challenges.map(function(challenge) {
-    return '<li>' + challenge + '</li>';
-  }).join('');
+  if (modalChallenges) {
+    modalChallenges.innerHTML = project.challenges.map(function(challenge) {
+      return '<li>' + challenge + '</li>';
+    }).join('');
+  }
 
-  document.getElementById('projectModal').classList.add('active');
-  document.body.style.overflow = 'hidden';
+  // Show modal
+  const modal = document.getElementById('projectModal');
+  if (modal) {
+    modal.classList.add('active');
+  }
+  
+  // IMPROVED: Better body scroll locking for mobile
+  // Save current scroll position
+  const scrollY = window.scrollY;
+  document.body.style.position = 'fixed';
+  document.body.style.top = '-' + scrollY + 'px';
+  document.body.style.width = '100%';
+  
+  // Store scroll position for restoration
+  document.body.setAttribute('data-scroll-position', scrollY);
 }
 
 function closeModal() {
-  document.getElementById('projectModal').classList.remove('active');
-  document.body.style.overflow = 'auto';
+  const modal = document.getElementById('projectModal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+  
+  // IMPROVED: Restore body scroll position for mobile
+  const scrollY = document.body.getAttribute('data-scroll-position');
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.width = '';
+  
+  // Restore scroll position
+  if (scrollY) {
+    window.scrollTo(0, parseInt(scrollY));
+  }
 }
+
+// Make functions globally accessible
+window.openModal = openModal;
+window.closeModal = closeModal;
 
 // ============================================
 // INITIALIZATION
 // ============================================
 function init() {
-  console.log('Portfolio projects initializing...');
-  
   // Render projects
   renderProjects();
   

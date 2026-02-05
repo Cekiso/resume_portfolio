@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
   <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
   <link rel="stylesheet" href="css/main.css" type="text/css">
+  <!-- In your HTML <head>, add: -->
+<link rel="stylesheet" href="css/mobile-responsive.css">
 </head>
 
 <body>
@@ -706,7 +708,8 @@
           <!-- End of Resume Subpage -->
 
           <!-- Portfolio Subpage -->
-      <section data-id="portfolio" class="animated-section">
+      <!-- Portfolio Section -->
+<section data-id="portfolio" class="animated-section">
     <div class="section-content">
       <div class="page-title">
         <h2>Portfolio</h2>
@@ -734,83 +737,78 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
+<!-- End of Portfolio Section -->
 
-  <!-- Modal Template -->
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="ajax-page-wrapper">
-          <div class="ajax-page-nav">
-            <div class="nav-item ajax-page-close">
-              <a href="#" class="close-btn" onclick="closeModal(); return false;">×</a>
-            </div>
+<!-- Modal Template - MUST BE OUTSIDE THE SECTION -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="ajax-page-wrapper">
+        <div class="ajax-page-nav">
+          <div class="nav-item ajax-page-close">
+            <a href="#" class="close-btn" onclick="closeModal(); return false;">×</a>
           </div>
-          <div class="ajax-page-title">
-            <h1 id="modalTitle"></h1>
-          </div>
+        </div>
+        <div class="ajax-page-title">
+          <h1 id="modalTitle"></h1>
         </div>
       </div>
-      <div class="modal-body">
-        <div class="portfolio-page-image">
-          <img id="modalImage" class="project-image" src="" alt="" style="width: 50%">
-        </div>
-        
-        <div class="ajax-page-wrapper">
-          <div class="portfolio-block">
-            <div class="row">
-              <div class="col-xs-12 col-sm-8">
-                <div class="project-description">
-                  <div class="block-title">
-                    <h3>Overview</h3>
-                  </div>
-                  <p id="modalOverview"></p>
+    </div>
+    <div class="modal-body">
+      <div class="portfolio-page-image">
+        <img id="modalImage" class="project-image" src="" alt="">
+      </div>
+      
+      <div class="ajax-page-wrapper">
+        <div class="portfolio-block">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <div class="project-description">
+                <div class="block-title">
+                  <h3>Overview</h3>
                 </div>
-
-                <div class="project-description">
-                  <div class="block-title">
-                    <h3>The Idea</h3>
-                  </div>
-                  <p id="modalIdea"></p>
-                </div>
-
-                <div class="project-description">
-                  <div class="block-title">
-                    <h3>Challenges Faced</h3>
-                  </div>
-                  <ul id="modalChallenges"></ul>
-                </div>
-
-                <div class="project-description">
-                  <div class="block-title">
-                    <h3>Solutions & Learnings</h3>
-                  </div>
-                  <p id="modalSolutions"></p>
-                </div>
+                <p id="modalOverview"></p>
               </div>
 
-              <div class="col-xs-12 col-sm-4">
-                <div class="project-description">
-                  <div class="block-title">
-                    <h3>Project Info</h3>
-                  </div>
-                  <ul class="project-general-info" id="modalInfo">
-                    <!-- Will be populated by JavaScript -->
-                  </ul>
+              <div class="project-description">
+                <div class="block-title">
+                  <h3>The Idea</h3>
                 </div>
+                <p id="modalIdea"></p>
+              </div>
 
-                <div class="project-description">
-                  <div class="block-title">
-                    <h3>Technologies</h3>
-                  </div>
-                  <ul id="modalTech"></ul>
+              <div class="project-description">
+                <div class="block-title">
+                  <h3>Challenges Faced</h3>
                 </div>
+                <ul id="modalChallenges"></ul>
+              </div>
 
-                <div class="project-links">
-                  <bold><h3>Project Links</h3></bold>
-                  <a id="modalLiveLink" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square">View Live Demo</i></a>
-                  <a id="modalGithubLink" href="#" target="_blank"> <> GitHub</a>
+              <div class="project-description">
+                <div class="block-title">
+                  <h3>Solutions & Learnings</h3>
                 </div>
+                <p id="modalSolutions"></p>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4">
+              <div class="project-description">
+                <div class="block-title">
+                  <h3>Technologies</h3>
+                </div>
+                <ul id="modalTech"></ul>
+              </div>
+
+              <div class="project-links">
+                <h3>Project Links</h3>
+                <a id="modalLiveLink" href="#" target="_blank" class="btn btn-primary">
+                  <i class="lnr lnr-link"></i> View Live Demo
+                </a>
+                <a id="modalGithubLink" href="#" target="_blank" class="btn btn-secondary">
+                  <i class="fab fa-github"></i> GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -818,7 +816,8 @@
       </div>
     </div>
   </div>
-          <!-- End of Portfolio Subpage -->
+</div>
+<!-- End of Modal -->
 
           <!-- Contact Subpage -->
           <section data-id="contact" class="animated-section">
